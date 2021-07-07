@@ -13,6 +13,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/welcome', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.index', ['name' => 'Rocky']);
+});
+Route::get('user', 'UserController@index');
+Route::get('user/{id}', 'UserController@get_user');
+
+
+Route::get('/index', function () {
+    return view('index', 'EssayController@index_tpl');
+});
+Route::get('show/{id}', 'EssayController@detail_tpl');
+
+
+// 设备注册等相关
+Route::group(array('prefix' => 'v1/user', 'middleware' => 'VerifyApikey'), function() {
+
+	Route::get('listdevice', 'DevicesController@getList'); 
+
+	// 对于Post的请求Laravel默认进行csrf校验，故需要在 Middleware/VerifyCsrfToken.php中加入post路由的白名单
+	Route::post('addjpid', 'DevicesController@addJpushRegid'); 
+
 });
