@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <meta name="applicable-device" content="mobile">
-    <meta name="apple-itunes-app" content="app-id=1011062013, app-argument=yangmao://view/123">
+    <!-- <meta name="apple-itunes-app" content="app-id=000000, app-argument=yangmao://view/123"> -->
     <meta name="format-detection" content="telephone=no" />
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @section('meta')
     @show
@@ -100,14 +102,14 @@
 
     <section class="about-us-panel bg-dark">
         {{-- <ul class="contact-info">
-            <li><i class="icon icon-sina"></i>微博：@微搭</li>
-            <li><i class="icon icon-qq"></i>QQ讨论：123456</li>
-            <li><i class="icon icon-mail"></i>反馈邮箱：enimong#gmail.com</li>
+            <li><i class="icon icon-sina"></i>微博：@微搭APP</li>
+            <!-- <li><i class="icon icon-qq"></i>QQ讨论：123456</li> -->
+            <li><i class="icon icon-mail"></i>反馈邮箱：contact@weda.com</li>
         </ul> --}}
         <hr/>
         <div class="company-info">
             <p>
-                联系我们：weda@tencent.com
+                联系我们：contact@weda.com
             </p>
             <p>
                 <?=date("Y")?> &copy; weda.cmcc.enimo.cn

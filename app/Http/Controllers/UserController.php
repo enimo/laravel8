@@ -52,9 +52,17 @@ class UserController extends Controller
         // $req = $req->except('_token');
         $name = $req->input('name', '');
         $email = $req->input('email', '');
+        $password = rand(100000,1000000);
 
-        // $result = DB::table('users')->insert($req);
-        if($name) {
+        $arr = [
+            'name' => $name,
+            'email' => $email,
+            'password' => $password,
+        ];
+        $user = DB::table('users')->insert($arr);
+        // $user = User::create($arr);
+
+        if($user) {
             return response()->json(array('errorCode'=>22000,'data'=>array(), 'msg'=>'ok'));
         }
         else {
