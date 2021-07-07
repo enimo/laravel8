@@ -1,9 +1,9 @@
 @extends('base.app')
 
 <?php 
-    $pageId='about';
+    $pageId='user';
 	//echo json_encode($tplData);
-    $title = $tplData['essay_title'].' - '.env('APP_NAME');
+    $title = $tplData['user']['name'].' - '.env('APP_NAME');
 	// $tplData['bottom_bar'] = array(
 	// 	"main_title" => "查看更多信息"
 	// );
@@ -24,7 +24,7 @@
             <div class="content-summary">
                 <div class="info">
                     <div class="record title">
-                        {{$tplData['essay_title']}}
+                        {{$tplData['user']['name']}}
                         {{-- 【{{$tplData['essay_author']}}】 --}}
                     </div>
                 </div>
@@ -34,15 +34,7 @@
 
             <div class="desc">
                 
-            @foreach ($user as $v)
-            <tr>
-                <td>{{ $v->id }}</td>
-                <td>{{ $v->name }}</td>
-                <td>{{ $v->password }}</td>
-                <td>{{ $v->email }}</td>
-            </tr>
-            @endforeach
-
+                {{$tplData['user']['email']}}
             </div>
         </div>
 	<br>

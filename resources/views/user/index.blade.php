@@ -25,7 +25,24 @@
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
 
-                <h1>Hello, {{ $name ?? ''}}</h1>
+                <h1>Hello, {{ $name ?? 'User List'}}</h1>
+
+
+                <div class="desc">
+                    
+                    <table>
+                        @foreach ($tplData as $v)
+                        <tr>
+                            <td>{{ $v->id }}</td>
+                            <td><a href="/user/{{$v->id}}">{{ $v->name }}</a></td>
+                            <td>{{ $v->password }}</td>
+                            <td>{{ $v->email }}</td>
+                        </tr>
+                        @endforeach
+                    </table>
+
+                </div>
+
 
                 <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
                     Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})

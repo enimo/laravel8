@@ -19,18 +19,18 @@ use App\Http\Controllers\EssayController;
 // });
 
 Route::get('/', function () {
-    return view('user.index', ['name' => 'Rocky']);
+    return view('welcome', ['name' => 'Rocky']);
 });
 
-Route::get('user',[UserController::class, 'index']);
+Route::get('user',[UserController::class, 'getList']);
 // Route::get('user', 'UserController@index');
-Route::get('user/{id}', [UserController::class, 'get_user']);
+Route::get('user/{id}', [UserController::class, 'getUser']);
+Route::post('useradd', [UserController::class, 'addUser']);
 
 
-Route::get('/index', function () {
-    return view('index', 'EssayController@index_tpl');
-});
-Route::get('show/{id}', 'EssayController@detail_tpl');
+Route::get('index',[EssayController::class, 'index_tpl']);
+Route::get('about',[EssayController::class, 'about_tpl']);
+Route::get('show/{id}', [EssayController::class, 'detail_tpl']);
 
 
 // 设备注册等相关

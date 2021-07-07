@@ -21,18 +21,45 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index_test()
     {
         // $users = DB::select('select * from users where active = ?', [1]);
 
         return view('user.index', ['name' => 'Rocky User List']);
     }
 
-    public function get_user()
+    public function getUser($id)
     {
-        $essayModel = new Essay();
-        $tplData = $essayModel->getDetail(110); // 关于我们数据
+        if((int)$id == 0 || empty($id)) {
+            abort(404);
+        }
+        $model = new User();
+        $tplData = $model->getDetail($id); // 关于我们数据
         return view("user.detail", array('tplData' => $tplData));
+    }
+
+
+    public function getList($start = 0)
+    {
+        $model = new User();
+        $tplData = $model->getList($start); // 关于我们数据
+        // dd($tplData);
+        return view("user.index",  array('tplData' => $tplData) );
+    }
+
+    
+    public function addUser(Request $req) {
+        // $req = $req->except('_token');
+        $name = $req->input('name', '');
+        $email = $req->input('email', '');
+
+        // $result = DB::table('users')->insert($req);
+        if($name) {
+            return response()->json(array('errorCode'=>22000,'data'=>array(), 'msg'=>'ok'));
+        }
+        else {
+            return response()->json(array('errorCode'=>22001,'data'=>array(), 'msg'=>'failed'));
+        }
     }
 
     //用户登录接口

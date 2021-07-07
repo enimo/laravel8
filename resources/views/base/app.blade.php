@@ -20,7 +20,7 @@
     <?php
         $openInApp = true;
         if(!isset($_GET['fr']) || $_GET['fr'] !== 'appinner') {
-            $openInApp = false;
+            // $openInApp = false; //暂时取消底部bar的显示 - enimo 20210707
         }
     ?>
 
@@ -64,11 +64,11 @@
             <div class="col title-wrap">
                 <div class="title-main">微搭APP</div>
                 <div class="title-sub">陪你玩转低代码
-
+<!-- 
                     <?php if(!$openInApp) { ?>
                     <a class="about-us" href="/about?fr=topbar">关于</a>
                     <?php } ?>
-                    <a class="about-us" target="_blank" href="/">开发者社区</a>
+                    <a class="about-us" target="_blank" href="/">开发者社区</a> -->
                 </div>
             </div>
         </div>
@@ -77,14 +77,18 @@
     <!-- sub header -->
      <div class="bar bar-subheader">
         <div class="tabs">
-            <a href="/" class="tab-item @if($pageId=='index') active @endif">
+            <a href="/index" class="tab-item @if($pageId=='index') active @endif">
                 主页
             </a>
+            <a href="/" class="tab-item @if($pageId=='sns') active @endif">
+                开发者社区
+            </a>
+            
             <a href="/about" class="tab-item @if($pageId=='about') active @endif">
                 关于我们
             </a>
 
-            <a href="/user/123" class="tab-item @if($pageId=='user') active @endif">
+            <a href="/user" class="tab-item @if($pageId=='user') active @endif">
                 用户列表
             </a>
             
