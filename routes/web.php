@@ -32,6 +32,8 @@ Route::post('useradd', [UserController::class, 'addUser']);
 
 
 Route::get('order/make', [WXPayController::class, 'newOrder']);
+Route::get('order/bill', [WXPayController::class, 'checkBill']);
+Route::get('order/downloadbill', [WXPayController::class, 'downloadBill']);
 
 
 Route::get('index',[EssayController::class, 'index_tpl']);
