@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EssayController;
+use App\Http\Controllers\WXPayController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +29,9 @@ Route::get('user',[UserController::class, 'getList']);
 // Route::get('user', 'UserController@index');
 Route::get('user/{id}', [UserController::class, 'getUser']);
 Route::post('useradd', [UserController::class, 'addUser']);
+
+
+Route::get('order/make', [WXPayController::class, 'newOrder']);
 
 
 Route::get('index',[EssayController::class, 'index_tpl']);
