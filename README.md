@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Install Laravel Demo
 After started  [Docker-LNMP](https://github.com/enimo/docker-lnmp), you could install Laravel Demo follow 3 steps:
 ### 1 Pull code
 ```
