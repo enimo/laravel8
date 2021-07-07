@@ -83,6 +83,11 @@
             <a href="/about" class="tab-item @if($pageId=='about') active @endif">
                 关于我们
             </a>
+
+            <a href="/user/123" class="tab-item @if($pageId=='user') active @endif">
+                用户列表
+            </a>
+            
         </div>
     </div> 
 @show

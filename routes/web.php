@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\EssayController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,8 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('user.index', ['name' => 'Rocky']);
 });
-Route::get('user', 'UserController@index');
-Route::get('user/{id}', 'UserController@get_user');
+
+Route::get('user',[UserController::class, 'index']);
+// Route::get('user', 'UserController@index');
+Route::get('user/{id}', [UserController::class, 'get_user']);
 
 
 Route::get('/index', function () {

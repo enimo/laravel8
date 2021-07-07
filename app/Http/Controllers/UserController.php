@@ -24,7 +24,7 @@ class UserController extends Controller
     {
         // $users = DB::select('select * from users where active = ?', [1]);
 
-        return view('user.index', ['users' => 'Rocky Index']);
+        return view('user.index', ['name' => 'Rocky User List']);
     }
 
     public function get_user()

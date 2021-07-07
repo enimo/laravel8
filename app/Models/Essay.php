@@ -20,7 +20,7 @@ class Essay extends Model
      */
     protected $table = 'any_essay';
 
-    protected $connection = 'lanycms';
+    protected $connection = 'weda';
 
     protected $primaryKey = 'essay_id';
 
