@@ -32,7 +32,18 @@
 
             <div class="sep"></div>
 
-            <div class="desc">{!! $tplData['essay_content'] !!}</div>
+            <div class="desc">
+                
+            @foreach ($user as $v)
+            <tr>
+                <td>{{ $v->id }}</td>
+                <td>{{ $v->name }}</td>
+                <td>{{ $v->password }}</td>
+                <td>{{ $v->email }}</td>
+            </tr>
+            @endforeach
+
+            </div>
         </div>
 	<br>
 
