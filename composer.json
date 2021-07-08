@@ -11,8 +11,8 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
-        "wechatpay/wechatpay": "^1.0.4"
-
+        "wechatpay/wechatpay": "^1.0.4",
+        "wechatpay/wechatpay-guzzle-middleware": "^0.2.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
