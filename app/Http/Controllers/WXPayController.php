@@ -38,7 +38,7 @@ class WXPayController extends Controller
             ],
 
             // APIv2密钥(32字节)--不使用APIv2可选
-            'secret' => env('API_SECRET'),
+            'secret' => env('PAY_API_SECRET'),
             'merchant' => [// --不使用APIv2可选
                 // 商户证书 文件路径 --不使用APIv2可选
                 'cert' => env('mchcert'),
