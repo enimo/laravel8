@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EssayController;
 use App\Http\Controllers\WXPayController;
+use App\Http\Controllers\WXShopController;
 
 
 /*
@@ -41,6 +42,14 @@ Route::get('order/pay', [WXPayController::class, 'payCash']);
 Route::get('index',[EssayController::class, 'index_tpl']);
 Route::get('about',[EssayController::class, 'about_tpl']);
 Route::get('show/{id}', [EssayController::class, 'detail_tpl']);
+
+
+Route::get('shop/token',[WXShopController::class, 'getToken']);
+Route::get('shop/info',[WXShopController::class, 'shopInfo']);
+Route::get('shop/goods', [WXShopController::class, 'getGoods']);
+Route::get('shop/balance', [WXShopController::class, 'getBalance']);
+Route::get('shop/cashflow', [WXShopController::class, 'getCashFlow']);
+
 
 
 // 设备注册等相关

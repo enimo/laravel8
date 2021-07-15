@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+// Artisan::command('token:wx {appid}', function ($appid) {
+//     // ...
+//     // $this->info("Geting token : {$appid}!");
+// })->purpose('Get WX Token by appid via TX Cloud');
