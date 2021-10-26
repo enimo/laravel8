@@ -79,10 +79,10 @@
     <!-- sub header -->
      <div class="bar bar-subheader">
         <div class="tabs">
-            <a href="/index" class="tab-item @if($pageId=='index') active @endif">
+            <a href="/" class="tab-item @if($pageId=='index') active @endif">
                 主页
             </a>
-            <a href="/" class="tab-item @if($pageId=='sns') active @endif">
+            <a href="/index" class="tab-item @if($pageId=='bbs') active @endif">
                 开发者社区
             </a>
             

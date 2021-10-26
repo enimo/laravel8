@@ -1,7 +1,7 @@
 @extends('base/app')
 
 <?php
-$pageId='index';
+$pageId='bbs';
 // $keywords = '';
 ?>
 

@@ -1,7 +1,7 @@
 @extends('base.app')
 
 <?php 
-    $pageId = 'user.index';
+    $pageId = 'user';
     $title = '用户首页'.' - '.env('APP_NAME');
 ?>
 

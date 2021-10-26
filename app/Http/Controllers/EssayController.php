@@ -35,8 +35,13 @@ class EssayController extends Controller
     public function about_tpl()
     {
         $essayModel = new Essay();
-        $tplData = $essayModel->getDetail(110); // 关于我们数据
-        return view("about", array('tplData' => $tplData));
+        $tplData = $essayModel->getDetail(78);
+        if (!$tplData) {
+            abort(404);
+            return false;
+        }
+        return view("detail", array('tplData' => $tplData));
+    
     }
 
     public function getapp()
