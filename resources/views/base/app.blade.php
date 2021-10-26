@@ -112,7 +112,7 @@
                 联系我们：contact@weda.com
             </p>
             <p>
-                <?=date("Y")?> &copy; weda.cmcc.enimo.cn
+                <?=date("Y")?> &copy; weda.enimo.cn
             </p>
             <p>
                 {{-- 京ICP备14014459号-1 --}}
