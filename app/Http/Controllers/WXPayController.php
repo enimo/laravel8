@@ -45,7 +45,7 @@ class WXPayController extends Controller
                 // 商户API私钥 文件路径 --不使用APIv2可选
                 'key' => env('privateKey'),
             ],
-        ]);
+        ]); 
 
         
         // 采用原始的Guzzle HTTP 工厂方法构造一个实例2
