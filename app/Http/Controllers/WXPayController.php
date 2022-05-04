@@ -72,23 +72,24 @@ class WXPayController extends Controller
 
 
     public function newOrder(Request $req) {
-        $name = $req->input('name', '');
-        $email = $req->input('email', '');
-        $password = rand(100000,1000000);
+        // $name = $req->input('name', '');
+        // $email = $req->input('email', '');
+        // $password = rand(100000,1000000);
 
-        $arr = [
-            'name' => $name,
-            'email' => $email,
-            'password' => $password,
-        ];
+        // $arr = [
+        //     'name' => $name,
+        //     'email' => $email,
+        //     'password' => $password,
+        // ];
 
         try {
-            /*
+            // exit("try");
+
             // 方法一  -  原始方法
             $resp = WXPayController::$instance2->request('POST', 'https://api.mch.weixin.qq.com/v3/pay/transactions/native', [
                 'json' => [
                     'mchid' => env('MCHID'),
-                    'out_trade_no' => '666555001',
+                    'out_trade_no' => '666554001',
                     'appid' => env('MP_APPID'),
                     'description' => 'Image形象店-深圳腾大-QQ公仔',
                     'notify_url' => 'https://weixin.qq.com/',
@@ -99,21 +100,21 @@ class WXPayController extends Controller
                 ],
                 'headers' => [ 'Accept' => 'application/json' ]
             ]);
-            */
+            
 
             // 方法二
-            $resp = WXPayController::$instance1->v3->pay->transactions->native
-                ->post(['json' => [
-                    'mchid' => env('MCHID'),
-                    'out_trade_no' => '6655'.date("Ymd"),
-                    'appid' => env('MP_APPID'),
-                    'description' => 'Image形象店-深圳腾大-QQ公仔',
-                    'notify_url' => 'https://weixin.qq.com/',
-                    'amount' => [
-                        'total' => 1,
-                        'currency' => 'CNY'
-                    ],
-                ]]);  
+            // $resp = WXPayController::$instance1->v3->pay->transactions->native
+            //     ->post(['json' => [
+            //         'mchid' => env('MCHID'),
+            //         'out_trade_no' => '6655'.date("Ymd"),
+            //         'appid' => env('MP_APPID'),
+            //         'description' => 'Image形象店-深圳腾大-QQ公仔',
+            //         'notify_url' => 'https://weixin.qq.com/',
+            //         'amount' => [
+            //             'total' => 1,
+            //             'currency' => 'CNY'
+            //         ],
+            //     ]]);  
         
             // echo $resp->getStatusCode() . ' ' . $resp->getReasonPhrase(), PHP_EOL;
             // echo $resp->getBody(), PHP_EOL;
@@ -121,6 +122,8 @@ class WXPayController extends Controller
             return response()->json(array('errorCode'=>22000, 'data' => json_decode($resp->getBody()), 'msg'=> $resp->getStatusCode() . ' ' . $resp->getReasonPhrase() ));
 
         } catch (Exception $e) {
+            // exit("catch");
+
             // 进行错误处理
             // echo $e->getMessage(), PHP_EOL;
             if ($e instanceof \Psr\Http\Message\ResponseInterface && $e->hasResponse()) {
