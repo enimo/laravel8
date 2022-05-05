@@ -7,10 +7,10 @@
  *  user zoom.
  */
 html {
-    -webkit-user-select: none;
+    /* -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
+    user-select: none; */
     font-family: sans-serif;
     /* 1 */
     -webkit-text-size-adjust: 100%;

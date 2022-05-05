@@ -89,7 +89,7 @@ class WXPayController extends Controller
             $resp = WXPayController::$instance2->request('POST', 'https://api.mch.weixin.qq.com/v3/pay/transactions/native', [
                 'json' => [
                     'mchid' => env('MCHID'),
-                    'out_trade_no' => '666554001',
+                    'out_trade_no' => '666554001'.date("Ymd"),
                     'appid' => env('MP_APPID'),
                     'description' => 'Image形象店-深圳腾大-QQ公仔',
                     'notify_url' => 'https://weixin.qq.com/',
