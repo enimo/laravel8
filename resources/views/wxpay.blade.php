@@ -2,6 +2,8 @@
 
 <?php
 $pageId='bbs';
+$title = '微信支付测试'.' - '.env('APP_NAME');
+
 // $keywords = '';
 ?>
 
