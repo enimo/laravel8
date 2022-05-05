@@ -1,8 +1,8 @@
 @extends('base.app')
 
 <?php 
-    $pageId = 'user';
-    $title = '用户首页'.' - '.env('APP_NAME');
+    $pageId = 'essay';
+    $title = '内容列表'.' - '.env('APP_NAME');
 ?>
 
 @section('content')
@@ -25,7 +25,7 @@
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
 
-                <h1>Hello, {{ $name ?? 'User List'}}</h1>
+                <h1>Hello, {{ $name ?? 'Essay List'}}</h1>
 
 
                 <div class="desc">
@@ -33,10 +33,10 @@
                     <table>
                         @foreach ($tplData as $v)
                         <tr>
-                            <td>{{ $v->id }}</td>
-                            <td><a href="/user/{{$v->id}}">{{ $v->name }}</a></td>
-                            <!-- <td>{{ $v->password2 }}</td> -->
-                            <td>{{ $v->email }}</td>
+                            <!-- <td>{{ $v->essay_id }}</td> -->
+                            <td><a href="/essay/{{ $v->essay_id }}">{{ $v->essay_title }}</a></td>
+                            <td>{{ $v->essay_author }}</td>
+                            <td>{{ $v->essay_updatetime }}</td>
                         </tr>
                         @endforeach
                     </table>

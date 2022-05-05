@@ -86,12 +86,15 @@
                 开发者社区
             </a>
             
-            <a href="/about" class="tab-item @if($pageId=='about') active @endif">
+            <!-- <a href="/about" class="tab-item @if($pageId=='about') active @endif">
                 关于我们
-            </a>
+            </a> -->
 
             <a href="/user" class="tab-item @if($pageId=='user') active @endif">
                 用户列表
+            </a>
+            <a href="/essay" class="tab-item @if($pageId=='essay') active @endif">
+                内容列表
             </a>
             
         </div>

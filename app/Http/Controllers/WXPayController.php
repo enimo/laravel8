@@ -127,14 +127,77 @@ class WXPayController extends Controller
             // 进行错误处理
             // echo $e->getMessage(), PHP_EOL;
             if ($e instanceof \Psr\Http\Message\ResponseInterface && $e->hasResponse()) {
-                echo $e->getResponse()->getStatusCode() . ' ' . $e->getResponse()->getReasonPhrase(), PHP_EOL;
-                echo $e->getResponse()->getBody();
+                // echo $e->getResponse()->getStatusCode() . ' ' . $e->getResponse()->getReasonPhrase(), PHP_EOL;
+                // echo $e->getResponse()->getBody();
             }
 
             return response()->json(array('errorCode' => 22001, 'data' => $e->getResponse()->getBody(), 'msg' => $e->getMessage() ));
         }
 
     }
+
+
+    public function wxpay_tpl(Request $req)
+    {
+        // $email = $req->input('email', '');
+        // $password = rand(100000,1000000);
+
+        $cent = $req->input('cent', 1);
+        $cent = (int) $cent;
+        $out_trade_no = $req->input('no', 0);
+        $out_trade_no = (string) $out_trade_no;
+        if ($out_trade_no == 0) {
+            $out_trade_no = '95270001'.date("YmdHis");
+        }
+        $description = 'Image形象店-深圳腾大-QQ公仔'.date("YmdHis");
+
+        try {
+            // 这里使用的方法二
+            $resp = WXPayController::$instance1->v3->pay->transactions->native
+                ->post(['json' => [
+                    'mchid' => env('MCHID'),
+                    'out_trade_no' => $out_trade_no,
+                    'appid' => env('MP_APPID'),
+                    'description' => $description,
+                    'notify_url' => 'https://weda.enimo.cn/pay_notify',
+                    'amount' => [
+                        'total' => $cent,
+                        'currency' => 'CNY'
+                    ],
+                ]]);  
+
+                
+            // echo $resp->getStatusCode() . ' ' . $resp->getReasonPhrase(), PHP_EOL;
+            // echo $resp->getBody(), PHP_EOL;
+            // $code = json_decode('{"code_url":"weixin://wxpay/bizpayurl?pr=cQECCnCzz"}');
+            $code = json_decode($resp->getBody());
+
+            $tplData = array('out_trade_no'=>$out_trade_no, 'description'=>$description, 'cent' => $cent, 'code' => $code->code_url);
+
+            return view("wxpay", array('tplData' => $tplData));
+
+            // return response()->json(array('errorCode'=>22000, 'data' => json_decode($resp->getBody()), 'msg'=> $resp->getStatusCode() . ' ' . $resp->getReasonPhrase() ));
+
+
+        } catch (\Exception $e) {
+            // 进行错误处理
+            // echo $e->getMessage(), PHP_EOL;
+            if ($e instanceof \GuzzleHttp\Exception\RequestException && $e->hasResponse()) {
+                $r = $e->getResponse();
+                echo $r->getStatusCode() . ' ' . $r->getReasonPhrase(), PHP_EOL;
+                echo $r->getBody(), PHP_EOL, PHP_EOL, PHP_EOL;
+                // return response()->json(array('errorCode' => 22001, 'data' => $e->getResponse()->getBody(), 'msg' => $e->getMessage() ));
+            }
+            // echo $e->getTraceAsString(), PHP_EOL;
+        }
+        // if((int)$id == 0 || empty($id)) {
+        //     abort(404);
+        // }
+        // $model = new User();
+        // $tplData = $model->getDetail($id); // 关于我们数据
+
+    }
+
 
     public function checkOrder(Request $req) {
 

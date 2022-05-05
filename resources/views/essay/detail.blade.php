@@ -1,7 +1,7 @@
 @extends('base.app')
 
 <?php 
-    $pageId='about';
+    $pageId='essay';
 	//echo json_encode($tplData);
     $title = $tplData['essay_title']. ' - 玩在当下';
 	// $tplData['bottom_bar'] = array(

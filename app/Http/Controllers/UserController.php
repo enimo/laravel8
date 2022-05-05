@@ -28,7 +28,7 @@ class UserController extends Controller
         return view('user.index', ['name' => 'Rocky User List']);
     }
 
-    public function getUser($id)
+    public function user_tpl($id)
     {
         if((int)$id == 0 || empty($id)) {
             abort(404);
@@ -39,7 +39,7 @@ class UserController extends Controller
     }
 
 
-    public function getList($start = 0)
+    public function userlist_tpl($start = 0)
     {
         $model = new User();
         $tplData = $model->getList($start); // 关于我们数据

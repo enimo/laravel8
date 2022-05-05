@@ -40,7 +40,7 @@ class EssayController extends Controller
             abort(404);
             return false;
         }
-        return view("detail", array('tplData' => $tplData));
+        return view("essay.detail", array('tplData' => $tplData));
     
     }
 
@@ -104,7 +104,7 @@ class EssayController extends Controller
         $bnfObj =  Essay::where('essay_id', $id);
         $bnfObj->increment('essay_click', 1);
         // $tplData = $this->formatData($tplData);
-        return view("detail", array('tplData' => $tplData));
+        return view("essay.detail", array('tplData' => $tplData));
     }
 
     /**
@@ -127,6 +127,33 @@ class EssayController extends Controller
         } 
         // return Response::json(Essay::get());
         return response()->json(array('errorCode'=>22000, "count"  => count($tplData), 'data'=>$tplData));
+
+    }
+
+     /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function essayList_tpl(Request $request)
+    {
+        $offset = $request->input('offset', 0);
+        $limit = $request->input('limit', 20);
+        $did = $request->input('did', 0);
+        $cid = $request->input('cid', 31);
+        $cid = (int) $cid;
+        
+        $essayModel = new Essay();
+        $tplData = $essayModel->getList($offset, $limit, $cid, $did);
+
+        if(!$tplData) {
+            abort(404);
+            return false;
+            // return response()->json(array('errorCode'=>22000,'data'=>array(), 'msg'=>'no data'));
+        } 
+        // return Response::json(Essay::get());
+        // return response()->json(array('errorCode'=>22000, "count"  => count($tplData), 'data'=>$tplData));
+        return view("essay.list",  array('tplData' => $tplData) );
 
     }
 

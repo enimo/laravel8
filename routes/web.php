@@ -22,26 +22,38 @@ use App\Http\Controllers\WXShopController;
 //     return view('welcome');
 // });
 
+
+
+// PAGE
 Route::get('/', function () {
     return view('welcome', ['name' => 'Rocky']);
 });
 
-Route::get('user',[UserController::class, 'getList']);
+Route::get('user',[UserController::class, 'userlist_tpl']);
 // Route::get('user', 'UserController@index');
-Route::get('user/{id}', [UserController::class, 'getUser']);
-Route::post('useradd', [UserController::class, 'addUser']);
+Route::get('user/{id}', [UserController::class, 'user_tpl']);
 
+
+Route::get('index',[EssayController::class, 'index_tpl']);
+
+Route::get('essay', [EssayController::class, 'essayList_tpl']);
+Route::get('essay/{id}', [EssayController::class, 'detail_tpl']);
+Route::get('about',[EssayController::class, 'about_tpl']); // 暂时未展示该页面的入口
+
+
+Route::get('wxpay',[WXPayController::class, 'wxpay_tpl']); // 随机生成微信支付二维码
+
+
+
+
+// API
+Route::post('useradd', [UserController::class, 'addUser']);
 
 Route::get('order/make', [WXPayController::class, 'newOrder']);
 Route::get('order/check', [WXPayController::class, 'checkOrder']);
 Route::get('order/bill', [WXPayController::class, 'checkBill']);
 Route::get('order/downloadbill', [WXPayController::class, 'downloadBill']);
 Route::get('order/pay', [WXPayController::class, 'payCash']);
-
-
-Route::get('index',[EssayController::class, 'index_tpl']);
-Route::get('about',[EssayController::class, 'about_tpl']);
-Route::get('show/{id}', [EssayController::class, 'detail_tpl']);
 
 
 Route::get('shop/token',[WXShopController::class, 'getToken']);
