@@ -25,7 +25,9 @@ $title = '微信支付测试'.' - '.env('APP_NAME');
         </div>
 
         <div id="qrcode-wrap" >
-            <canvas id="qrcode-canvas" class="img-polaroid"></canvas>
+            <!-- <canvas id="qrcode-canvas" class="img-polaroid"></canvas> -->
+            <div id="qrcode"></div>
+
         </div>
 
         <!-- <img src="/static/img/screen-intro-530x918-h5-3.png" width="265" height="459" alt=""/> -->
@@ -35,30 +37,41 @@ $title = '微信支付测试'.' - '.env('APP_NAME');
 
 
 </div>
-<script src="/static/js/qrcode.js"></script>
+
+
+<script src="/static/js/qrcode2.js"></script>
+
 
 <script>
-(function () {
-    //'use strict';
+    new QRCode(document.getElementById('qrcode'), "{{ $tplData['code'] }}");
+</script>
 
-    var url = "{{ $tplData['code'] }}";
-	//qrcode handler
-	var qrcodedraw = new qrcodelib.qrcodedraw();
+
+
+
+<!-- <script src="/static/js/qrcode.js"></script> -->
+<script>
+// (function () {
+//     //'use strict';
+
+//     var url = "{{ $tplData['code'] }}";
+// 	//qrcode handler
+// 	var qrcodedraw = new qrcodelib.qrcodedraw();
     
-	//triggered errors will throw
-    qrcodedraw.errorBehavior.length = false;
+// 	//triggered errors will throw
+//     qrcodedraw.errorBehavior.length = false;
 
-    var drawQR = function(text){
-      qrcodedraw.draw(document.getElementById('qrcode-canvas'),text,function(error,canvas){
-        if(error) {
-          console.log(error);
-        }
-      });
-    }
+//     var drawQR = function(text){
+//       qrcodedraw.draw(document.getElementById('qrcode-canvas'),text,function(error,canvas){
+//         if(error) {
+//           console.log(error);
+//         }
+//       });
+//     }
 
-	drawQR( url );
+// 	drawQR( url );
 
-})();
+// })();
 
 </script>
 
