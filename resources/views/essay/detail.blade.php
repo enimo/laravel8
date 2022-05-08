@@ -35,6 +35,11 @@
 
 @section('content')
 
+<style>
+    .worth-buying-detail-page .sep{
+        height:0px;
+    }
+</style>
     <div class="worth-buying-detail-page">
 
 
