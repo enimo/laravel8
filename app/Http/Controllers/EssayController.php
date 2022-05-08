@@ -23,13 +23,25 @@ class EssayController extends Controller
      *
      * @return Response
      */
-    public function index_tpl()
+    public function sns_tpl()
     {
         if (strpos($_SERVER["SERVER_NAME"], 'vip.enimo.cn') !== FALSE) {
             return response()->json(array('errorCode'=>22004, 'msg'=>'no index page'));
         }
         $tplData = array();
-        return view("index", array('tplData' => $tplData));
+        return view("sns", array('tplData' => $tplData));
+    }
+
+    public function weda_index_tpl()
+    {
+        $essayModel = new Essay();
+        $tplData = $essayModel->getDetail(154);
+        if (!$tplData) {
+            abort(404);
+            return false;
+        }
+        return view("essay.detail", array('tplData' => $tplData));
+    
     }
 
     public function about_tpl()

@@ -25,19 +25,20 @@ use App\Http\Controllers\WXShopController;
 
 
 // PAGE
-Route::get('/', function () {
-    return view('welcome', ['name' => 'Rocky']);
-});
+// Route::get('/', function () {
+//     return view('welcome', ['name' => 'Rocky']);
+// });
 
 Route::get('user',[UserController::class, 'userlist_tpl']);
 // Route::get('user', 'UserController@index');
 Route::get('user/{id}', [UserController::class, 'user_tpl']);
 
-
-Route::get('index',[EssayController::class, 'index_tpl']);
+Route::get('/',[EssayController::class, 'weda_index_tpl']);  
+Route::get('sns',[EssayController::class, 'sns_tpl']);
 
 Route::get('essay', [EssayController::class, 'essayList_tpl']);
 Route::get('essay/{id}', [EssayController::class, 'detail_tpl']);
+
 Route::get('about',[EssayController::class, 'about_tpl']); // 暂时未展示该页面的入口
 
 

@@ -11,7 +11,7 @@
 
     @section('meta')
     @show
-    <title>{{ $title ?? '微搭APP - 给年轻生活加点味' }}</title>
+    <title>{{ $title ?? 'Weda APP - 给年轻生活加点味' }}</title>
 
     <meta content="{{@$keywords  ??  '微搭，信用卡，机票，理财，航空，酒店，常客计划'}}" name="keywords"/>
     <meta content="{{@$description  ?? '微搭，给年轻人的生活更多乐趣'}}" name="description"/>
@@ -64,7 +64,7 @@
                 <div class="logo"></div>
             </div>
             <div class="col title-wrap">
-                <div class="title-main">微搭APP</div>
+                <div class="title-main">Weda</div>
                 <div class="title-sub">陪你玩转低代码
 <!-- 
                     <?php if(!$openInApp) { ?>
@@ -82,7 +82,7 @@
             <a href="/" class="tab-item @if($pageId=='index') active @endif">
                 主页
             </a>
-            <a href="/index" class="tab-item @if($pageId=='bbs') active @endif">
+            <a href="/sns" class="tab-item @if($pageId=='sns') active @endif">
                 开发者社区
             </a>
             
@@ -105,7 +105,7 @@
 
     <section class="about-us-panel bg-dark">
         {{-- <ul class="contact-info">
-            <li><i class="icon icon-sina"></i>微博：@微搭APP</li>
+            <li><i class="icon icon-sina"></i>微博：@WedaAPP</li>
             <!-- <li><i class="icon icon-qq"></i>QQ讨论：123456</li> -->
             <li><i class="icon icon-mail"></i>反馈邮箱：contact@weda.com</li>
         </ul> --}}

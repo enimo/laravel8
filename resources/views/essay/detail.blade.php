@@ -2,8 +2,12 @@
 
 <?php 
     $pageId='essay';
+
+    if ($tplData['essay_id'] == 154 || $tplData['essay_id'] == 78) {
+        $pageId = 'index';
+    }
 	//echo json_encode($tplData);
-    $title = $tplData['essay_title']. ' - 玩在当下';
+    $title = $tplData['essay_title']. ' - '.env('APP_NAME');
 	// $tplData['bottom_bar'] = array(
 	// 	"main_title" => "查看更多信息"
 	// );
