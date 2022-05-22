@@ -137,7 +137,7 @@
     <div class="wx-download-guide"></div>
 </div>
 
-
+<script async defer data-website-id="5f07e5bc-cd25-493a-a800-1b3c679bc9b0" src="http://umami.weda.enimo.cn/umami.js"></script>
 
 </body>
 </html>
