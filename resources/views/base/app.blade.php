@@ -137,6 +137,6 @@
     <div class="wx-download-guide"></div>
 </div>
 
-<script async defer data-website-id="5f07e5bc-cd25-493a-a800-1b3c679bc9b0" src="https://stat.enimo.cn/umami.js"></script>
+<script async defer data-website-id="5f07e5bc-cd25-493a-a800-1b3c679bc9b0" src="https://stat.enimo.cn/tiktok.js"></script>
 </body>
 </html>
